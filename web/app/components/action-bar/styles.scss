@@ -1,0 +1,84 @@
+&.action-bar {
+  position: relative;
+  width: 100%;
+
+  @extend .navbar;
+  @extend .navbar-dark;
+  @extend .bg-inverse;
+  
+  border-radius: 0;
+
+  .action-bar__back-button, .action-bar__up-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .action-bar__back-button {
+    @include icon('arrow-circle-left');
+  } 
+
+  .action-bar__up-button {
+    @include icon('arrow-circle-up');
+  }
+
+  .action-bar__back-button, .action-bar__up-button {
+    @extend .btn;
+    @extend .btn-link;
+
+    display: block;
+    height: 100%;
+    border: 0;
+  }
+
+  .action-bar__brand {
+    @extend .navbar-brand;
+  }
+
+  .action-bar__menu {
+    float: right;
+
+    @extend .nav;
+    @extend .navbar-nav;
+  }
+
+  .action-bar__menu > li {
+    @extend .nav-item;
+  }
+
+  .action-bar__menu > li > button {
+    @extend .btn-link;
+    @extend .nav-link;
+  }
+
+  .action-bar__profile-block {
+    float: right;
+    height: 100%;
+  }
+
+  .nav-bar {
+    @extend .nav;
+    @extend .navbar-nav;
+
+    padding: 0;
+    list-style: none;
+
+    .nav-bar__item {
+      float: left;
+      height: 100%;
+    }
+
+    .nav-bar__item + .nav-bar__item {
+      margin-left: 1rem;
+    }
+
+    .nav-bar__item > a {
+      display: block;
+      height: 100%;
+      text-decoration: none;
+    }
+  }
+}

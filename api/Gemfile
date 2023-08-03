@@ -1,0 +1,52 @@
+source 'https://rubygems.org'
+
+gem 'rails', github: 'sheldonnbbaker/rails', branch: '4-2-5-1-with-pr-17479'
+gem 'rails-api'
+
+gem 'dotenv-rails'
+
+gem 'rack-cors', :require => 'rack/cors'
+
+gem 'pg'
+gem 'postgres_ext'
+
+gem 'jwt'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'delayed_job_active_record'
+
+gem 'pundit'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', ref: 'fe6d2da46f0a44dddfff4078090250799abee582'
+gem 'kaminari'
+
+gem 'virtus'
+
+gem 'httparty'
+gem 'oauth'
+gem 'koala', '~> 2.2'
+
+gem 'counter_culture', '~> 0.1.33'
+gem 'unread'
+
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'delayed_paperclip'
+gem 'aws-sdk', '>= 2.0.0'
+
+gem 'twilio-ruby', '~> 4.2.1'
+gem 'phony_rails'
+
+gem 'pusher'
+gem 'rails-observers'
+
+group :development do
+  # gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener'
+  gem 'foreman'
+
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+end

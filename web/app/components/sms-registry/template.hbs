@@ -1,0 +1,12 @@
+{{#if registration.enabled}}
+  woot - {{registration.phoneNumber}}
+{{else}}
+  {{#if registration.verifiableAt}}
+    verify
+    {{input value=registration.verificationCode}}
+    {{#saving-button action=(action "save") isSaving=registration.isSaving}}save{{/saving-button}}
+  {{else}}
+    {{input value=registration.phoneNumber}}
+    {{#saving-button action=(action "save") isSaving=registration.isSaving}}save{{/saving-button}}
+  {{/if}}
+{{/if}}

@@ -1,0 +1,30 @@
+<div class="negotiable__participation-breakdowns">
+  {{negotiable-participation
+    participation=sortedParticipations.firstObject
+    editable=editable
+
+    createIngredient="createIngredient"
+    createAndEditIngredient="createAndEditIngredient"
+    editIngredient="editIngredient"
+    removeIngredient="removeIngredient"
+    
+    classNames="negotiable__participation"
+  }}
+
+  {{negotiable-stats negotiable=negotiable class="negotiable__stats"}}
+  
+  {{negotiable-participation
+    participation=sortedParticipations.lastObject
+    editable=editable
+    
+    selectableTeams=proposableTeams
+    updateTeam=attrs.updateParticipationTeam
+    
+    createIngredient="createIngredient"
+    createAndEditIngredient="createAndEditIngredient"
+    editIngredient="editIngredient"
+    removeIngredient="removeIngredient"
+
+    classNames="negotiable__participation"
+  }}
+</div>

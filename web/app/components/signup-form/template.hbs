@@ -1,0 +1,42 @@
+<form class="stacked-form">
+  <fieldset class="stacked-form__title">
+    <h4>Sign Up or <a class="action" {{action attrs.logIn}}>Log In</a></h4>
+  </fieldset>
+
+  {{#unless user.isValid}}
+    <fieldset class="stacked-form__errors">
+      {{#if user.errors.twitterId}}
+        {{user.errors.twitterId.firstObject.message}} - did you mean to <a class="action" {{action attrs.logIn}}>log in</a>?
+      {{/if}}
+
+      {{#if user.errors.facebookId}}
+        {{user.errors.facebookId.firstObject.message}} - did you mean to <a class="action" {{action attrs.logIn}}>log in</a>?
+      {{/if}}
+    </fieldset>
+  {{/unless}}
+
+  <fieldset class="stacked-form__flow stacked-form__flow--auth">
+    {{input type="email" value=user.email autofocus=autofocus placeholder="Email" class="stacked-form__email"}}
+    {{input type="password" value=user.password placeholder="Password" class="stacked-form__password"}}
+
+    <div class="stacked-form__subscription">
+      <label>
+        {{input type="checkbox" checked=user.subscribedToUpdates}} Subscribe to occasional important updates?
+      </label>
+    </div>
+
+    {{#promising-button class="action-btn action-btn--full action-btn--primary" action=(action "signUpWithEmail")}}
+      Sign up and remember me
+    {{/promising-button}}
+  </fieldset>
+
+  <fieldset class="stacked-form__flow stacked-form__flow--social">
+    {{#twitter-button on-click="signUpWithTwitter" preventDefault=true class="action-btn action-btn--full action-btn--secondary"}}
+      Sign up with Twitter
+    {{/twitter-button}}
+
+    {{#facebook-button on-click="signUpWithFacebook" preventDefault=true class="action-btn action-btn--full action-btn--secondary"}}
+      Sign up with Facebook
+    {{/facebook-button}}
+  </fieldset>
+</form>

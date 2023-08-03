@@ -1,0 +1,8 @@
+@mixin compacted {
+  @include make-col();
+
+  @include media-breakpoint-up(md) {
+    @include make-col-span(6);
+    @include make-col-offset(3);
+  }
+}

@@ -1,0 +1,23 @@
+@include media-breakpoint-up(sm) {
+  .notification-subscription-group {
+    @include make-row();
+
+    border-top: 1px solid $light-gray;
+    &:first-child {
+      border-top: 0;
+    }
+  
+    .notification-subscription-group__label {
+      @include make-col();
+      @include make-col-span(6);
+    }
+
+    .notification-subscriptions {
+      @include make-col();
+      @include make-col-span(6);
+
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+  }
+}

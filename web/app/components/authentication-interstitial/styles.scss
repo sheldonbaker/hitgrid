@@ -1,0 +1,14 @@
+.auth-interstitial__skipper {
+  @extend .alert;
+  @extend .alert-success;
+
+  display: inline-block;
+  width: 100%;
+
+  padding: 5px;
+  margin-bottom: 0;
+
+  font-size: 80%;
+  text-align: center;
+  cursor: pointer;
+}

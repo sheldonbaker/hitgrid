@@ -1,0 +1,57 @@
+{{#grouped-objects objects=rows groupPath=objectGrouper sortKeys=groupKeyOrder as |group allocations|}}
+  <table>
+    <colgroup span="2"></colgroup>
+    <colgroup span="1"></colgroup>
+    <colgroup span="4" class="obligatable-table__column--days"></colgroup>
+    <colgroup span="1" class="obligatable-table__column--cost"></colgroup>
+
+    <thead>
+      <tr>
+        <th colspan="2">
+          {{group}}
+        </th>
+        <th>Hit</th>
+        <th>Roster</th>
+        <th>Loaned</th>
+        <th>SOIR</th>
+        <th>Suspended</th>
+        <th>Cost</th>
+        <th>Bonuses</th>
+      </tr>
+    </thead>
+
+    {{#each allocations as |row|}}
+      {{#block-toggler tagName="tbody" hidden=(not (eq group "rostered")) as |hidden toggle|}}
+        <tr class="{{unless hidden "active"}}">
+          <th scope="row" class="obligatable-table__row-toggler"></th>
+          <th scope="row">
+            {{contract-legend contract=row.contractYear.contract}}
+          </th>
+          <td>{{format-dollars row.contractYear.avgValue}}</td>
+          <td>{{unbound row.fullDays}}</td>
+          <td>{{unbound row.loanedDays}}</td>
+          <td>{{unbound row.onSOIRDays}}</td>
+          <td>{{unbound row.suspendedDays}}</td>
+          <td>{{format-dollars row.capCost}}</td>
+          <td>{{format-dollars row.contractYear.maxPerformanceBonuses}}</td>
+        </tr>
+
+        {{#unless hidden}}
+          {{#each row.allocations as |allocation|}}
+            <tr>
+              <td></td>
+              <td>{{format-moment allocation.startDate "MMM D"}} - {{format-moment allocation.endDate "MMM D"}}</td>
+              <td>{{format-dollars allocation.capHit}}</td>
+              <td>{{unbound allocation.fullDays}}</td>
+              <td>{{unbound allocation.loanedDays}}</td>
+              <td>{{unbound allocation.onSOIRDays}}</td>
+              <td>{{unbound allocation.suspendedDays}}</td>
+              <td>{{format-dollars allocation.capCost}}</td>
+              <td>-</td>
+            </tr>
+          {{/each}}
+        {{/unless}}
+      {{/block-toggler}}
+    {{/each}}
+  </table>
+{{/grouped-objects}}

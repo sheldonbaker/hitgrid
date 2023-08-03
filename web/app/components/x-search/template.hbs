@@ -1,0 +1,16 @@
+{{search-form
+  query=query
+  isOpen=isOpen
+  blurred="handleBlur"
+  isVisible=(or media.isDesktop (and media.isMobile isOpen))
+}}
+
+{{search-results-container
+  isOpen=isOpen
+  query=query
+  results=results
+  target=resultsTarget
+  attachment=resultsAttachment
+  targetAttachment=resultsTargetAttachment
+  clickedOutside="handleOutsideClick"
+}}

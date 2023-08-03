@@ -1,0 +1,15 @@
+#profile {
+  @include make-row();
+
+  > div {
+    @include make-col();
+
+    @media (max-width: 48em) {
+      @include make-col-span(12);
+    }
+    @media (min-width: 48em) {
+      @include make-col-span(4);
+      @include make-col-offset(4);
+    }
+  }  
+}

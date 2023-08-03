@@ -1,0 +1,51 @@
+html, body {
+  height: 100%;
+}
+
+body > .ember-tether {
+  height: auto;
+  padding: 0;
+}
+
+.wrapper > .headroom-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: index($z-layers, menus);
+  
+  width: 100%;
+}
+
+#content-wrapper {
+  @include make-container();
+  // padding: 10px 0;
+}
+
+#content {
+  > div:first-child {
+    padding: 1rem 0;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  header { height: 6rem; }
+  .content { padding-top: 6rem; }
+}
+
+@include media-breakpoint-up(md) {
+  header { height: 4.6rem; }
+  .content { padding-top: 4.6rem; }
+}
+
+@include media-breakpoint-up(lg) {
+  header { height: 3rem; }
+  .content { padding-top: 3rem; }
+}
+
+.wrapper.home .content {
+  padding-top: 0 !important;
+
+  .x-feature {
+    padding-top: 3rem; // TODO (mq)
+  }
+}

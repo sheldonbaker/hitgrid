@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  channel: MyString
+  enabled: false
+  registration_id: 1
+
+two:
+  channel: MyString
+  enabled: false
+  registration_id: 1

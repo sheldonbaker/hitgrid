@@ -1,0 +1,16 @@
+{{proposal-actions proposal=proposal team=team create=(route-action "createProposal")}}
+
+{{x-negotiable
+  negotiable=proposal
+  editable=proposal.isNew
+
+  updateParticipationTeam=(action "updateParticipationTeam")
+  createIngredient="createIngredient"
+  createAndEditIngredient="createAndEditIngredient"
+  editIngredient="editIngredient"
+  updateIngredient="updateIngredient"
+  removeIngredient="removeIngredient"
+}}
+
+{{messages-thread messages=proposal.messages team=team proposal=proposal}}
+{{post-adder addPost=(route-action "addMessage")}}

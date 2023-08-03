@@ -1,0 +1,11 @@
+{{contract.player.abbrName}}
+{{format-dollars contractYear.avgValue}}
+
+{{#if allocation}}
+  {{if allocation.onIR "on IR"}}
+  {{if allocation.onLTIR "on LTIR"}}
+
+  {{#if allocation.retained}}
+    {{allocation.retainedPct}}
+  {{/if}}
+{{/if}}

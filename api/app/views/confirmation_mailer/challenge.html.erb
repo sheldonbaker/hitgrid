@@ -1,0 +1,11 @@
+<p>
+  <% if @profile_handle %>
+    Hey <%= @profile_handle %>
+  <% else %>
+    Hi,  
+  <% end %>
+</p>
+
+<p>
+  Click <a href="<%= @confirmation_verification_url %>"><%= @confirmation_verification_url %></a>.
+</p>

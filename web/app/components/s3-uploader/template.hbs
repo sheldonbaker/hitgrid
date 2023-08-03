@@ -1,0 +1,13 @@
+{{#if isAvailable}}
+  {{#if isEnabled}}
+    {{input type="file"}}
+
+    {{#if image.isSaving}}
+      {{image.uploadCompleted}} / {{image.uploadTotal}}
+    {{/if}}
+  {{else}}
+    wait
+  {{/if}}
+{{else}}
+  nope
+{{/if}}

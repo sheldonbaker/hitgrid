@@ -1,0 +1,22 @@
+<div class="trade-deadline__messages-container">
+  <div class="row">
+    <div class="trade-deadline__messages">
+      {{#messages-with-teams tradeDeadline=tradeDeadline teams=teams messages=messages as |team lastMessage unseenCount|}}
+        {{team.club.abbr}}
+
+        {{#if unseenCount}}
+          ({{unseenCount}})
+        {{/if}}
+
+        {{#threaded-message message=lastMessage team=team as |message wasSent|}}
+          {{lastMessage.body}}
+        {{/threaded-message}}
+      {{/messages-with-teams}}
+
+
+    </div>
+    <div class="col-sm-8">
+      {{outlet}}
+    </div>
+  </div>
+</div>

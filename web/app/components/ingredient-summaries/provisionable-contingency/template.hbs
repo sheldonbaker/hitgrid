@@ -1,0 +1,13 @@
+{{conditionable-brief conditionable=ingredient.provisionable}}
+
+{{#if (or attrs.edit attrs.remove)}}
+  <div class="btn-group">
+    {{#if attrs.edit}}
+      <button type="button" class="action-btn btn__conditionalize" {{action attrs.edit ingredient}}></button>
+    {{/if}}
+    
+    {{#if attrs.remove}}
+      <button type="button" class="action-btn btn__remove" {{action attrs.remove ingredient}}></button>
+    {{/if}}
+  </div>
+{{/if}}

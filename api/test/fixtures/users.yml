@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  hashed_password: MyString
+  profile_id: 1
+  twitter_id: MyString
+  facebook_id: MyString
+  claimed_at: 2015-12-17 16:17:44
+  secret: MyString
+
+two:
+  email: MyString
+  hashed_password: MyString
+  profile_id: 1
+  twitter_id: MyString
+  facebook_id: MyString
+  claimed_at: 2015-12-17 16:17:44
+  secret: MyString

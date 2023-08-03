@@ -1,0 +1,30 @@
+& {
+  height: calc(100vh - 280px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 10px;
+
+  .message-thread__message-row {
+    @include make-row();
+    margin-bottom: 10px;
+  }
+
+  .message-thread__message-sender {
+    @include make-col();
+    @include make-col-span(1);
+  }
+
+  .message-thread__message-bubble {
+    @include make-col();
+    @include make-col-span(11);
+  }
+
+  .message-thread__message-metadata {
+    color: gray;
+    font-size: 80%;
+
+    a {
+      color: #333333;
+    }
+  }
+}

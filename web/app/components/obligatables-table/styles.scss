@@ -1,0 +1,57 @@
+table {
+  @extend .table;
+  @extend .table-sm;
+  @extend .table-responsive;
+}
+
+// .table-striped with alpha
+tbody tr:nth-of-type(odd) {
+  background-color: rgba($table-bg-accent, 0.5);
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: rgba(#FFF, 0.5);
+}
+
+// for .table-responsive
+// see http://v4-alpha.getbootstrap.com/content/tables/#responsive-tables
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+thead {
+  @extend .thead-default;
+}
+
+// .table-hover with cursor and alpha
+tbody tr {
+  cursor: pointer;
+
+  @include hover {
+    background-color: rgba($table-bg-hover, 0.8)
+  }
+}
+
+tr.active {
+  // @extend .table-active;
+
+  .obligatable-table__row-toggler {
+    @include icon('toggle-down');
+  }
+}
+
+.obligatable-table__row-toggler {
+  @include icon('toggle-right');
+}
+
+.obligatable-table__column--days {
+  background-color: $brand-success;
+}
+
+.obligatable-table__column--ltir {
+  background-color: $brand-danger;
+}
+
+.obligatable-table__column--cost {
+  background-color: $brand-info;
+}

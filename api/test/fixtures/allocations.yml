@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  universe_id: 1
+  club_id: 1
+  start_date: 2016-01-18
+  end_date: 2016-01-18
+  league_year_id: 1
+  contract_year_id: 1
+  retained: false
+  retained_pct: 1
+  on_ltir: false
+
+two:
+  universe_id: 1
+  club_id: 1
+  start_date: 2016-01-18
+  end_date: 2016-01-18
+  league_year_id: 1
+  contract_year_id: 1
+  retained: false
+  retained_pct: 1
+  on_ltir: false

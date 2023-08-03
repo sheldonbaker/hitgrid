@@ -1,0 +1,45 @@
+{{#data-table}}
+  <colgroup span="1"></colgroup>
+  <colgroup span="3" class="club-calculations-table__today-column"></colgroup>
+  <colgroup span="3" class="club-calculations-table__trade-deadline-column"></colgroup>
+  <colgroup span="4" class="club-calculations-table__season-end-column"></colgroup>
+
+  <thead>
+    {{#sorting-head sort=attrs.sort sortBy=attrs.sortBy tagName="tr" as |head|}}
+      {{#head.th by="club.id" iconFamily="alpha"}}Team{{/head.th}}
+    
+      {{#head.th by="trade_deadline_cap_usage"}}Cap Usage{{/head.th}}
+      {{#head.th by="trade_deadline_cap_space"}}Cap Space{{/head.th}}
+      {{#head.th by="trade_deadline_absorbable_cap_hit"}}Absorbable Cap Hit{{/head.th}}
+
+      {{#head.th by="season_end_cap_usage"}}Cap Usage{{/head.th}}
+      {{#head.th by="season_end_cap_space"}}Cap Space{{/head.th}}
+      {{#head.th by="season_end_ltir_relief"}}LTIR Relief{{/head.th}}
+      {{#head.th by="season_end_bonus_cushion_usage"}}Bonus Cushion Usage{{/head.th}}
+    {{/sorting-head}}
+  </thead>
+
+  <tbody>
+    {{#each latestTeamCalculations as |calc|}}
+      <tr>
+        <td>
+          {{#link-to "trade-deadline.teams.team" tradeDeadline.id calc.team.club.abbr}}
+            {{club-logo club=calc.team.club}}
+            {{calc.team.club.distinctiveName}}
+          {{/link-to}}
+
+          {{link-to calc.team.profile.handle "profile" calc.team.profile.handle}}
+        </td>
+
+        <td>{{format-dollars calc.tradeDeadlineCapUsage}}</td>
+        <td>{{format-dollars calc.tradeDeadlineCapSpace}}</td>
+        <td>{{format-dollars calc.tradeDeadlineAbsorbableCapHit}}</td>
+
+        <td>{{format-dollars calc.seasonEndCapUsage}}</td>
+        <td>{{format-dollars calc.seasonEndCapSpace}}</td>
+        <td>{{format-dollars calc.seasonEndLTIRRelief}}</td>
+        <td>{{format-dollars calc.seasonEndBonusCushionUsage}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+{{/data-table}}

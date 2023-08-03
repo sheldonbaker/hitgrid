@@ -1,0 +1,29 @@
+<form class="stacked-form">
+  <fieldset class="stacked-form__title">
+    <h4>Log In or <a class="action" {{action attrs.signUp}}>Sign Up</a></h4>
+  </fieldset>
+
+  {{#unless accessToken.isValid}}
+    <fieldset class="stacked-form__errors">
+      No such email/password combination found
+    </fieldset>
+  {{/unless}}
+
+  <fieldset class="stacked-form__flow stacked-form__flow--auth">
+    {{input type="email" value=accessToken.userEmail autofocus=autofocus placeholder="Email" class="stacked-form__email"}}
+    {{input type="password" value=accessToken.userPassword placeholder="Password" class="stacked-form__password"}}
+
+    <button type="submit" class="action-btn action-btn--full action-btn--primary">Log in and remember me</button>
+    <p class="stacked-form__forgot-password">Forgot password?</p>
+  </fieldset>
+
+  <fieldset class="stacked-form__flow stacked-form__flow--social">
+    {{#twitter-button on-click="logInWithTwitter" preventDefault=true class="action-btn action-btn--full action-btn--secondary"}}
+      Log in with Twitter
+    {{/twitter-button}}
+
+    {{#facebook-button on-click="logInWithFacebook" preventDefault=true class="action-btn action-btn--full action-btn--secondary"}}
+      Log in with Facebook
+    {{/facebook-button}}
+  </fieldset>
+</form>

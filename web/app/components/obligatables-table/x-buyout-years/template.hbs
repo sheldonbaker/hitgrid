@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each obligatables as |buyoutYear|}}
+      <tr>
+        <td>
+          {{contract-legend contract=buyoutYear.buyout.contract}}
+        </td>
+        <td>{{format-dollars buyoutYear.capCost}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

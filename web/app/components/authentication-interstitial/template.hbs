@@ -1,0 +1,33 @@
+{{#x-steps currentStep=currentState.path as |currentStep|}}
+  {{#liquid-if (eq currentStep "start")}}
+    {{#if requireUser}}
+      <button {{action "signUpNow"}} disabled="{{if isFulfilling true}}">sign up now</button>
+      <button {{action "signUpLater"}} disabled="{{if isFulfilling true}}">sign up later</button>
+    {{else}}
+      <button {{action "signUpNow"}} disabled="{{if isFulfilling true}}">sign up</button>
+    {{/if}}
+
+    <button {{action "logIn"}} disabled="{{if isFulfilling true}}">log in</button>
+  {{/liquid-if}}
+
+  {{#liquid-if (eq currentStep "signup")}}
+    {{signup-form user=currentState.newUser signUp="signUpAndLogIn" signUpWithProvider="signUpWithProviderAndLogIn" logIn="logIn"}}
+    {{#if requireUser}}
+      <a class="auth-interstitial__skipper" {{action "signUpLater"}}>
+        Or, skip this for now
+      </a>
+    {{/if}}
+  {{/liquid-if}}
+
+  {{#liquid-if (eq currentStep "login")}}
+    {{login-form accessToken=currentState.accessToken logIn="logIn" logInWithProvider="logInWithProvider" signUp="signUp"}}
+  {{/liquid-if}}
+
+  {{#liquid-if (eq currentStep "profile")}}
+    {{profile-form profile=currentState.profile on-submit="publishProfile"}}
+  {{/liquid-if}}
+
+  {{#if isFulfilling}}
+    spinner
+  {{/if}}
+{{/x-steps}}

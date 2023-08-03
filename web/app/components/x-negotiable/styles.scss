@@ -1,0 +1,19 @@
+.negotiable__participation-breakdowns {
+  @include make-row();
+}
+
+.negotiable__participation {
+  @include make-col();
+
+  @include media-breakpoint-up(md) {
+    @include make-col-span(4);
+  }
+}
+
+.negotiable__stats {
+  @include make-col();
+
+  @include media-breakpoint-up(md) {
+    @include make-col-span(4);
+  }
+}

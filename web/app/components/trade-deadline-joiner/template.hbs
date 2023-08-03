@@ -1,0 +1,23 @@
+<form class="stacked-form" {{action "submit" on="submit"}}>
+  <fieldset>
+    <fieldset class="stacked-form__title">
+      <h4>Join {{teamClaim.tradeDeadline.name}}</h4>
+    </fieldset>
+
+    {{#unless teamClaim.isValid}}
+      <fieldset class="stacked-form__errors">
+        Something went wrong - are you sure that team hasn't been claimed already?
+      </fieldset>
+    {{/unless}}
+
+    {{#form-group model=teamClaim key="team" as |fg|}}
+      <label>Team</label>
+      {{select-2 content=teamOptions value=teamToClaimId optionValuePath="id"}}
+      {{fg.errors}}
+    {{/form-group}}
+
+    {{#promising-button class="action-btn action-btn--full action-btn--primary" action=(action "save")}}
+      Join
+    {{/promising-button}}
+  </fieldset>
+</form>

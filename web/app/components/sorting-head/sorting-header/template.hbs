@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#if isSortedAsc}}
+  <span class="sorting-header__button sorting-header__button--asc sorting-header__button--{{iconFamily}}"></span>
+{{else if isSortedDesc}}
+  <span class="sorting-header__button sorting-header__button--desc sorting-header__button--{{iconFamily}}"></span>
+{{/if}}

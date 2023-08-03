@@ -1,0 +1,49 @@
+.stacked-form {
+  background: #FFF;
+}
+
+.stacked-form__title {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.stacked-form__errors {
+  @extend .alert;
+  @extend .alert-danger;
+
+  margin: 0 1rem;
+}
+
+.stacked-form fieldset:not(.form-group) {
+  padding: 1rem;
+}
+
+.stacked-form input[type="text"],
+.stacked-form input[type="email"],
+.stacked-form input[type="password"] {
+  @extend .form-control;
+}
+
+.stacked-form__password {
+  margin-bottom: 0.5rem;
+}
+
+.stacked-form__subscription {
+  @extend .checkbox;
+}
+
+.stacked-form__subscription, .stacked-form__forgot-password {
+  color: $text-muted;
+  text-align: center;
+  font-size: 80%;
+}
+
+.stacked-form__forgot-password {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.stacked-form__flow--social {
+  padding: 1.5rem 4rem;
+  background: #EEE;
+}

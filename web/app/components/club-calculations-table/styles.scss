@@ -1,0 +1,15 @@
+&.club-calculations-table {
+  @extend .table;
+
+  .club-calculations-table__today-column {
+    background: orange;
+  }
+
+  .club-calculations-table__trade-deadline-column {
+    background: blue;
+  }
+
+  .club-calculations-table__season-end-column {
+    background: red;
+  }
+}

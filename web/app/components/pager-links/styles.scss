@@ -1,0 +1,15 @@
+ul {
+  @extend .pager;
+
+  :first-child {
+    @extend .pager-prev;
+  }
+
+  :last-child {
+    @extend .pager-next;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}

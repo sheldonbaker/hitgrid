@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-sm-12">
+    {{#if team.calculations.isFulfilled}}
+      {{calculation-banner calculation=latestCalculation}}
+    {{else}}
+      loading calculation
+    {{/if}}
+
+    {{club-logo club=team.club size="md"}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    {{obligations-chart obligatables=obligatablesForLeagueYear reliefs=team.reliefs leagueYear=team.leagueYear date=team.date}}
+
+    {{#grouped-objects objects=obligatablesForLeagueYear groupPath="constructor.modelName" sortKeys=(in-array "allocation" "retention-year" "buyout-year" "recapture-penalty-year" "overage") as |group obligatables|}}
+      {{obligatables-table obligatables=obligatables leagueYear=team.leagueYear date=team.date}}
+    {{/grouped-objects}}
+  </div>
+
+  <div class="col-sm-4">
+    <div>
+      {{#tabs-wrapper selectedTab="contracts" as |tabs|}}
+        {{#tabs.nav as |selectTab|}}
+          <li><a {{action selectTab "contracts"}}>contracts</a></li>
+          <li><a {{action selectTab "draftPicks"}}>draft picks</a></li>
+          <li><a {{action selectTab "conditionals"}}>conditional draft picks</a></li>
+        {{/tabs.nav}}
+
+        <div class="negotiable-participation__assets">
+          {{#tabs.pane name="contracts"}}
+            {{#allocated-contracts date=team.date contracts=team.contractAssetables allocations=team.allocationObligatables as |contract allocation|}}
+              {{allocated-contract-brief contract=contract allocation=allocation}}
+            {{/allocated-contracts}}
+          {{/tabs.pane}}
+
+          {{#tabs.pane name="draftPicks"}}
+            {{#each team.draftPickAssetables as |draftPick|}}
+              {{draft-pick-brief draftPick=draftPick}}
+            {{/each}}
+          {{/tabs.pane}}
+
+          {{#tabs.pane name="conditionals"}}
+            {{#each team.conditionalAssetables as |conditional|}}
+              {{conditionable-brief conditionable=conditional}}
+            {{/each}}
+          {{/tabs.pane}}
+        </div>
+      {{/tabs-wrapper}}
+    </div>
+
+    {{#if trades}}
+      <div>
+        trades by team
+      </div>
+    {{/if}}
+  </div>
+</div>

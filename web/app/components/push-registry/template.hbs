@@ -1,0 +1,21 @@
+{{user-agent-descriptor userAgent=registration.userAgent}}
+
+{{#if supported}}
+  {{#if registrationEnableable}}
+    {{#if registration.enabled}}
+      {{#promising-button action=(action "deauthorizeRegistration")}}
+        Deauthorize
+      {{/promising-button}}
+    {{else}}
+      {{#unless permitted}}
+        not permitted - <button {{action "verifyPermission"}}>check again</button>
+      {{/unless}}
+
+      {{#promising-button action=(action "authorizeRegistration")}}
+        Authorize
+      {{/promising-button}}
+    {{/if}}
+  {{else}}
+    (other device)
+  {{/if}}
+{{/if}}

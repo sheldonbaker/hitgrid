@@ -1,0 +1,10 @@
+#application.trade-deadlines.trade-deadline {
+  #action-bar {
+    position: fixed;
+    z-index: index($z-layers, topbar);
+  }
+}
+
+#trade-deadline {
+  @include make-row();
+}

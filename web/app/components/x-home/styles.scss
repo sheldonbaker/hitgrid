@@ -1,0 +1,16 @@
+& {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: index($z-layers, home);
+
+  .home__feature {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  footer button {
+    @extend .btn;
+  }
+}

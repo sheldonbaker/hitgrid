@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  universe_id: 1
+  start_date: 2016-01-13
+  end_date: 2016-01-13
+  team_id: 1
+  player_id: 1
+
+two:
+  universe_id: 1
+  start_date: 2016-01-13
+  end_date: 2016-01-13
+  team_id: 1
+  player_id: 1

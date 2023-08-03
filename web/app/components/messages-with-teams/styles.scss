@@ -1,0 +1,15 @@
+& {
+  @extend .list-group;
+
+  a {
+    @extend .list-group-item;
+  }
+
+  .trade-deadline__senders-panel {
+    @include make-col-span(3);
+  }
+
+  .trade-deadline__message-panel {
+    @include make-col-span(9);
+  }
+}

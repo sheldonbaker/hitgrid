@@ -1,0 +1,4 @@
+<ul>
+  <li class="{{if (or loading (not hasPrevPage)) "disabled"}}"><a {{action "prevPage"}}>Previous</a></li>
+  <li class="{{if (or loading (not hasNextPage)) "disabled"}}"><a {{action "nextPage"}}>Next</a></li>
+</ul>

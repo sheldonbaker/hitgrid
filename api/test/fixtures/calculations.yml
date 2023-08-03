@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  universe_id: 1
+  club_id: 1
+  date: 2016-01-31
+  cap_space: 1
+  season_end_cap_space: 1
+
+two:
+  universe_id: 1
+  club_id: 1
+  date: 2016-01-31
+  cap_space: 1
+  season_end_cap_space: 1

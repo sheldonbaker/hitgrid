@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  settlement_id: 1
+  league_year_id: 1
+  cap_cost: 1
+
+two:
+  settlement_id: 1
+  league_year_id: 1
+  cap_cost: 1

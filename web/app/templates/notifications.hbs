@@ -1,0 +1,23 @@
+<div class="card">
+  <header>
+    Notifications
+  </header>
+
+  <h4>email</h4>
+
+  {{#if user.email}}
+    {{input type="checkbox" value=user.subscribedToUpdates}}
+  {{else}}
+    {{link-to "Add your email" "settings.email"}}
+  {{/if}}
+
+  {{follow-button handle="sheldonnbbaker"}}
+
+  {{notification-subscriptions subscriptions=model.notificationSubscriptions tagName="section" class="card-block--halved" registerSms=(action "registerSms")}}
+
+  <footer>
+    {{#promising-button action=(action "save")}}
+      Save
+    {{/promising-button}}
+  </footer>
+</div>

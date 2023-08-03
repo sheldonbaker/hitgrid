@@ -1,0 +1,33 @@
+@mixin sidebar {
+  background: $light-gray;
+
+  ul {
+    // .nav
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    // @extend .nav-pills;
+  }
+
+  ul {
+    // .nav-stacked
+    > li {
+      display: block;
+      float: none !important; // TODO - no !important
+
+      + li {
+        margin-top: .2rem;
+        margin-left: 0;
+      }
+    }
+  }
+
+  li {
+    @extend .nav-item;
+
+    > a {
+      @extend .nav-link;
+    }
+  }
+}

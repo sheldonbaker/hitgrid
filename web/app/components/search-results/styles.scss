@@ -1,0 +1,22 @@
+& {
+  height: 100%;
+
+  .search-results__list {
+    @extend .list-unstyled;
+  }
+
+  .search-result {
+    padding: .25em .5em;
+  }
+
+  .search-result--is-selected {
+    background: blue;
+  }  
+}
+
+&.loading {
+  text-align: center;
+
+  @include icon('spinner');
+  @include icon-spin;
+}

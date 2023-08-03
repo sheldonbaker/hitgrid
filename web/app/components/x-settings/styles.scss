@@ -1,0 +1,19 @@
+@include make-row();
+
+.settings__content, .settings__navigation {
+  @include make-col();
+}
+
+.settings__navigation {
+  @include make-col-span(3);
+}
+
+.settings__content {
+  @include make-col-span(9);
+}
+
+@include media-breakpoint-down(sm) {
+  .settings__navigation {
+    display: none;
+  }
+}

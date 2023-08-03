@@ -1,0 +1,2 @@
+class LeagueYearSerializer < ApplicationSerializer
+end

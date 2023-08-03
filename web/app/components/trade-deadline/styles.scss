@@ -1,0 +1,112 @@
+.trade-deadline__header {
+  position: fixed;
+  width: 100%;
+  top: 3rem;
+
+  height: 5rem;
+  background: #CCC;
+
+  z-index: index($z-layers, menus);
+}
+
+.trade-deadline__title {
+  float: left;
+  font-size: 1.25rem;
+}
+
+.trade-deadline__tweeter {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+.trade-deadline__management {
+  clear: left;
+}
+
+.trade-deadline__stats {
+  @extend .list-unstyled;
+
+  float: right;
+
+  li {
+    float: left;
+    padding: 0 10px;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+}
+
+.trade-deadline__info {
+  @include make-col();
+  @include make-col-span(10);
+}
+
+.trade-deadline__countdown {
+  @include make-col();
+  @include make-col-span(2);
+}
+
+.trade-deadline__content {
+  float: left;
+  width: 100%;
+
+  margin-top: 7rem; // for fixed header
+  margin-bottom: 3.5rem; // for fixed toolbar
+
+  > :first-child {
+    @include make-col();
+    @include make-col-span(9);
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  > :last-child {
+    @include make-col();
+    @include make-col-span(3);
+
+    position: fixed;
+    top: 8rem;
+    bottom: 0; // pass bottom toolbar
+    right: 0;
+
+    z-index: index($z-layers, chat-feed);
+  }
+
+  .trade-deadline__feed {
+    @include make-row();
+  }
+
+  .trade-deadline__messages-container {
+    max-height: calc(100vh - 235px);
+    overflow: hidden;
+  }
+
+  .trade-deadline__messages {
+    @include make-col();
+    @include make-col-span(4);
+    height: calc(100vh - 235px);
+    overflow-y: auto
+  }
+
+  .trade-deadline__chat-board {
+    @include make-row();
+
+    margin-top: -0.9375rem;
+    margin-bottom: -0.9375rem;
+  }
+}
+
+.trade-deadline__toolbar {
+  height: 3.5rem;
+  z-index: index($z-layers, bottom-toolbar);
+}

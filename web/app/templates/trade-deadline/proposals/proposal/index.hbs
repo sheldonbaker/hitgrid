@@ -1,0 +1,17 @@
+{{proposal-actions
+  proposal=proposal
+  team=team
+
+  cancel=(route-action "participationNotConsenting")
+  accept=(route-action "participationConsenting")
+  decline=(route-action "participationNotConsenting")
+  counter=(route-action "counter")
+}}
+
+{{x-negotiable
+  negotiable=proposal
+  editable=proposal.isNew
+}}
+
+{{messages-thread messages=proposal.messages team=team proposal=proposal}}
+{{post-adder addPost=(route-action "createMessage")}}

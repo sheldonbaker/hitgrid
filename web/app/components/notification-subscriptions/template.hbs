@@ -1,0 +1,25 @@
+{{#grouped-objects objects=subscriptions groupPath="channel" defaultKeys=(in-array "reminders" "notices") as |groupedSubscriptions|}}
+  {{#with groupedSubscriptions.reminders as |subscriptions|}}
+    <div class="notification-subscription-group">
+      <div class="notification-subscription-group__label">Get reminders for an upcoming trade deadline you're participating in</div>
+
+      <div class="notification-subscriptions">
+        {{#each subscriptions as |subscription|}}
+          {{notification-subscription subscription=subscription registerSms=registerSms}}
+        {{/each}}
+      </div>
+    </div>
+  {{/with}}
+
+  {{#with groupedSubscriptions.notices as |subscriptions|}}
+    <div class="notification-subscription-group">
+      <div class="notification-subscription-group__label">Receive notifications whenever you get a trade proposal</div>
+
+      <div class="notification-subscriptions">
+        {{#each subscriptions as |subscription|}}
+          {{notification-subscription subscription=subscription registerSms=registerSms}}
+        {{/each}}
+      </div>
+    </div>
+  {{/with}}
+{{/grouped-objects}}

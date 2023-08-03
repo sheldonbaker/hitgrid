@@ -1,0 +1,19 @@
+& {
+  display: inline;
+}
+
+&.android {
+  @include icon('android')
+}
+
+&.osx, &.ios {
+  @include icon('apple');
+}
+
+&.windows {
+  @include icon('windows');
+}
+
+.chrome {
+  @include icon('chrome');
+}

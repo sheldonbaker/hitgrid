@@ -1,0 +1,3 @@
+{{#each map as |obj|}}
+  {{yield obj.item obj.isSelected (action "toggleSelected" obj.item obj.isSelected)}}
+{{/each}}

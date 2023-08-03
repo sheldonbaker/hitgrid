@@ -1,0 +1,9 @@
+<h6>{{newsItem.reporter}}</h6>
+
+{{#if (eq newsItem.key 'trade-confirmed')}}
+  <p>
+    Looks like we've got {{#link-to "trade-deadline.trades.trade" newsItem.payload.tradeDeadlineId newsItem.payload.tradeId}}a {{sample-array newsItem.payload.clubDistinctiveNames}} trade{{/link-to}} to announce!
+  </p>
+{{/if}}
+
+<span>{{from-now newsItem.createdAt}}</span>

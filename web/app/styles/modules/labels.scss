@@ -1,0 +1,38 @@
+.label--square {
+  @extend .label;
+}
+
+.label--pill {
+  @extend .label;
+  @extend .label-pill;
+
+  // no display: none if empty since we use :before for icons
+  &:empty {
+    display: inline-block;
+  }
+}
+
+.label--countered {
+  @extend .label-warning;
+}
+
+.label--pending {
+  @extend .label-info;
+}
+
+.label--rejected {
+  @extend .label-danger;
+}
+
+.label--cancelled {
+  @extend .label-danger;
+}
+
+.label--accepted {
+  @extend .label-success;
+}
+
+.label--unread {
+  @extend .label-danger;
+  @include icon('eye');
+}

@@ -1,0 +1,26 @@
+.card {
+  header {
+    @extend .card-header;
+  }
+
+  footer {
+    @extend .card-footer;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @extend .card-title;
+  }
+
+  section {
+    @extend .card-block;
+
+    padding: 0 $card-spacer-x;
+    margin: $card-spacer-x 0;
+  }
+
+  .card-block--halved {
+    border: solid $light-gray;
+    border-width: 1px 0;
+    background: linear-gradient(90deg, transparent, 50%, $light-gray 50%);
+  }
+}

@@ -1,0 +1,44 @@
+{{#data-table}}
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Teams available</th>
+      {{#if profile.favouriteClub}}<th>{{profile.favouriteClub.distinctiveName}} avilable?</th>{{/if}}
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tradeDeadlines as |td|}}
+      {{#trade-deadline-summary tagName="tr" tradeDeadline=td profileTeams=profile.teams as |tradeDeadline joined isFull isCurrent|}}
+        <td>{{link-to td.name "trade-deadline" tradeDeadline.id}}</td>
+        <td>{{format-moment tradeDeadline.startsAt "ddd, MMM Mo HH:mm"}} ({{from-now tradeDeadline.startsAt}})</td>
+        <td>{{format-moment tradeDeadline.endsAt "ddd, MMM Mo HH:mm"}} ({{from-now tradeDeadline.endsAt}})</td>
+        <td>{{subtract tradeDeadline.teamsCount tradeDeadline.claimedTeamsCount min=0}}</td>
+        {{#if profile.favouriteClub}}
+          <td>
+            <input type="checkbox" checked={{unless td.favouriteClubClaimed "checked"}} disabled="disabled">
+          </td>
+        {{/if}}
+        <td>
+          {{#unless joined}}
+            {{#if isFull}}
+              <button disabled="disabled">Full</button>
+            {{else}}
+              {{#promising-button action=(action attrs.join tradeDeadline profile.favouriteClub)}}
+                Join
+              {{/promising-button}}
+            {{/if}}
+          {{/unless}}
+
+          {{#if (and joined isCurrent)}}
+            {{#link-to "trade-deadline" tradeDeadline.id tagName="button"}}Go!{{/link-to}}
+          {{else}}
+            {{#link-to "trade-deadline" tradeDeadline.id tagName="button"}}View{{/link-to}}
+          {{/if}}
+        </td>
+      {{/trade-deadline-summary}}
+    {{/each}}
+  </tbody>
+{{/data-table}}

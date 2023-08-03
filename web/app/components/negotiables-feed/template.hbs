@@ -1,0 +1,9 @@
+<div class="negotiables-feed__items">
+  {{#each sortedNegotiablesWithParticipation as |obj|}}
+    {{yield obj.negotiable obj.participation}}
+  {{/each}}
+
+  {{#promising-button disabled=cannotLoadMore action=(action "loadMore") class="negotiables-feed__more"}}
+    Load More
+  {{/promising-button}}
+</div>

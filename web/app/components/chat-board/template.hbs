@@ -1,0 +1,7 @@
+<div class="chat-board__posts">
+  {{#each chatPosts as |chatPost|}}
+    {{chatPost.body}} - {{chatPost.team.club.abbr}}
+  {{/each}}
+</div>
+
+{{post-adder class="trade-deadline-feed__comment-creator" addPost=attrs.addChatPost}}

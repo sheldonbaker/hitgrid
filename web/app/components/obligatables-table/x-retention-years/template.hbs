@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Retained</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each obligatables as |retentionYear|}}
+      <tr>
+        <td>
+          {{contract-legend contract=retentionYear.retention.contract}}
+        </td>
+        <td>{{retentionYear.retention.absolutePct}}%</td>
+        <td>{{format-dollars retentionYear.capCost}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

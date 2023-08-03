@@ -1,0 +1,7 @@
+& {
+  @extend .list-group;
+
+  & > a {
+    @extend .list-group-item;
+  }
+}

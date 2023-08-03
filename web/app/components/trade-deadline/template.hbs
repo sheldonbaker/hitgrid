@@ -1,0 +1,45 @@
+<header class="trade-deadline__header">
+  <div class="trade-deadline__info">
+    {{#trades-stats tagName="ul" class="trade-deadline__stats" tradeDeadline=deadline as |stats|}}
+      <li>{{stats.total}} <span>trades</span></li>
+      <li>{{stats.playersInvolved}} <span>players</span></li>
+      <li>{{stats.draftPicksInvolved}} <span>draft picks</span></li>
+      <li>{{format-dollars stats.compensationInvolved}} <span>salary</span></li>
+    {{/trades-stats}}
+  
+    <h3 class="trade-deadline__title">
+      {{link-to tradeDeadline.name "trade-deadline" deadline.id}}
+      {{tweet-button tradeDeadline=tradeDeadline class="trade-deadline__tweeter"}}
+    </h3>
+
+    {{#if team}}
+      <h6 class="trade-deadline__management">Managing the {{link-to team.club.fullName "trade-deadline.teams.team" tradeDeadline.id team.club.abbr}}</h6>
+    {{/if}}
+  </div>
+
+  {{trade-deadline-countdown tradeDeadline=deadline class="trade-deadline__countdown"}}
+</header>
+
+{{#if media.isMobile}}
+  <nav>
+    <ul>
+      <li>{{link-to "Chat" "trade-deadline.index" tradeDeadline.id}}</li>
+      <li>{{link-to "Trades" "trade-deadline.trades" tradeDeadline.id}}</li>
+      <li>{{link-to "Teams" "trade-deadline.teams" tradeDeadline.id}}</li>
+    </ul>
+  </nav>
+{{/if}}
+
+<div class="trade-deadline__content">
+  <div>
+    {{yield}}
+  </div>
+
+  {{#unless media.isMobile}}
+    <div>
+      {{trade-deadline-feed tradeDeadline=tradeDeadline createComment=(route-action "createComment") class="trade-deadline__feed"}}
+    </div>
+  {{/unless}}
+</div>
+
+{{trade-deadline-toolbar class="trade-deadline__toolbar" tradeDeadline=deadline team=team}}

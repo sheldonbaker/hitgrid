@@ -1,0 +1,48 @@
+.action-btn, .action-button {
+  @extend .btn;
+}
+
+.action-btn--primary, .action-button--primary {
+  @extend .btn-primary;
+}
+
+.action-btn--secondary, .action-button--secondary {
+  @extend .btn-info;
+}
+
+.action-btn--tertiary, .action-button--tertiary {
+  @extend .btn-default;
+}
+
+.action-btn--full, .action-button--full {
+  @extend .btn-block;
+}
+
+a.action-btn, a.action-button {
+  cursor: pointer;
+}
+
+a.action-btn--full, a.action-button--full {
+  display: block;
+}
+
+.btn__add {
+  &:before {
+    content: 'Add'
+  }
+}
+
+.btn__remove { @include icon('remove'); }
+
+.btn__retain { @include icon('adjust'); }
+
+.btn__unretain {
+  @include icon('adjust');
+  @include icon-flip;
+}
+
+.btn__conditionalize { @include icon('warning'); }
+
+.btn__close {
+  @include icon('remove');
+}

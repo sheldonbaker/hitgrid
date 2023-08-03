@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each obligatables as |overage|}}
+      <tr>
+        <td>
+          Overage
+        </td>
+        <td>{{format-dollars overage.capCost}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

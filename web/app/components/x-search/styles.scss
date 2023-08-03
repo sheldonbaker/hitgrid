@@ -1,0 +1,10 @@
+& {
+  .search-form {
+    @extend .navbar-form;
+    @extend .form-inline;
+  }
+
+  .search-form input {
+    @extend .form-control;
+  }
+}

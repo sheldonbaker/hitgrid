@@ -1,0 +1,7 @@
+{{x-negotiable
+  negotiable=model
+  editable=false
+}}
+
+{{comment-thread comments=model.comments}}
+{{post-adder addPost=(route-action "createComment" model)}}

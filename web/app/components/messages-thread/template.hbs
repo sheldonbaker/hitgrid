@@ -1,0 +1,30 @@
+{{#each messages as |message|}}
+  {{#threaded-message message=message team=team as |message sentByTeam|}}
+
+    <div class="message-thread__message-row">
+      <div class="message-thread__message-sender">
+        {{#if sentByTeam}}
+          <strong>You</strong>
+        {{else}}
+          <strong>{{message.sender.club.abbr}}</strong>
+        {{/if}}
+      </div>
+
+      <div class="message-thread__message-bubble">
+        {{message.body}}
+        <div class="message-thread__message-metadata">
+          {{from-now message.createdAt}}
+          {{#unless proposal}}
+
+            {{#if (id-for-belongs-to message "proposal")}}
+              in
+              {{link-to "some proposal" "trade-deadline.proposals.proposal" (id-for-belongs-to message.sender "tradeDeadline") (id-for-belongs-to message "proposal")}}
+            {{/if}}
+          {{/unless}}
+        </div>
+
+      </div>
+    </div>
+
+  {{/threaded-message}}
+{{/each}}

@@ -1,0 +1,16 @@
+{{#promising-form action=(action "submit") as |form|}}
+  <fieldset>
+    {{textarea class="post-creator__textfield" value=newPostBody disabled=form.isFulfilling enter=(action form.submitConditionally submitOnEnter)}}
+  </fieldset>
+  
+  {{#form.button class="post-creator__submit" disabled=(not newPostBody)}}
+    save
+  {{/form.button}}
+
+  <div class="post-creator__checkbox">
+    <label>
+      Press enter to save
+      {{input type="checkbox" checked=submitOnEnter}}
+    </label>
+  </div>
+{{/promising-form}}

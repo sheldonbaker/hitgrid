@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trade_deadline_id: 1
+  reporter: MyString
+  key: MyString
+  payload: 
+
+two:
+  trade_deadline_id: 1
+  reporter: MyString
+  key: MyString
+  payload: 

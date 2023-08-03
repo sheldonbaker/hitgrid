@@ -1,0 +1,7 @@
+{{#each items as |item|}}
+  {{#if (eq item selectedItem)}}
+    {{yield item true}}
+  {{else}}
+    {{yield item false}}
+  {{/if}}
+{{/each}}

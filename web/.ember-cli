@@ -1,0 +1,5 @@
+{
+  "port": "4202",
+  "proxy": "http://localhost:3001",
+  "live-reload": false
+}

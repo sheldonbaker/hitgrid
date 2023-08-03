@@ -1,0 +1,36 @@
+<ul>
+  {{#if team}}
+    <li class="trade-deadline-toolbar__new-proposal">
+      {{link-to "" "trade-deadline.proposals.new" tradeDeadline.id}}
+    </li>
+    <li>
+      {{#link-to "trade-deadline.chat" tradeDeadline.id}}
+        GM Chat +
+      {{/link-to}}
+    </li>
+    <li class="trade-deadline-toolbar__messages">
+      {{#link-to "trade-deadline.messages.index" tradeDeadline.id}}
+        Messages {{#if teamUnreadMessages.length}}<span>{{teamUnreadMessages.length}}</span>{{/if}}
+      {{/link-to}}
+    </li>
+    <li class="trade-deadline-toolbar__proposals">
+      {{#link-to "trade-deadline.proposals" tradeDeadline.id}}
+        Proposals {{#if teamUnreadProposals.length}}<span>{{teamUnreadProposals.length}}</span>{{/if}}
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to "trade-deadline.trades.index" tradeDeadline.id}}
+        Trades {{#if teamUnreadTrades.length}}<span>{{teamUnreadTrades.length}}</span>{{/if}}
+      {{/link-to}}
+    </li>
+    <li>{{link-to "Teams" "trade-deadline.teams.index"}}</li>
+    <li>
+      {{#link-to "trade-deadline.teams.team" tradeDeadline.id team.club.abbr}}
+        {{team.club.distinctiveName}}
+      {{/link-to}}
+    </li>
+  {{else}}
+    <li>{{link-to "Teams" "trade-deadline.teams.index"}}</li>
+    <li>{{link-to "Trades" "trade-deadline.trades.index"}}</li>
+  {{/if}}
+</ul>

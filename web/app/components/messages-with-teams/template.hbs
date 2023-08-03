@@ -1,0 +1,7 @@
+{{#each teams as |team|}}
+  {{#messages-with-teams/messages-with-team team=team messages=messages as |lastMessage unseenCount|}}
+    {{#link-to "trade-deadline.messages.with-team" tradeDeadline.id team.club.abbr}}
+      {{yield team lastMessage unseenCount}}
+    {{/link-to}}
+  {{/messages-with-teams/messages-with-team}}
+{{/each}}

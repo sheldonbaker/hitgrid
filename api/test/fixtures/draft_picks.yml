@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  round: 1
+  club_id: 1
+  league_year_id: 1
+  compensatory: false
+
+two:
+  round: 1
+  club_id: 1
+  league_year_id: 1
+  compensatory: false

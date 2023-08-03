@@ -1,0 +1,9 @@
+{{#if results.isFulfilled}}
+  <ul class="search-results__list">
+    {{#actionable-items items=results action="selectResult" as |result isSelected|}}
+      <li class="search-result {{if isSelected "search-result--is-selected"}}" {{action "selectResult" this}}>
+        {{result.match}}
+      </li>
+    {{/actionable-items}}
+  </ul>
+{{/if}}

@@ -1,0 +1,19 @@
+& {
+  cursor: pointer;
+}
+
+.sorting-header__button--alpha.sorting-header__button--asc {
+  @include icon('sort-alpha-asc');
+}
+
+.sorting-header__button--alpha.sorting-header__button--desc {
+  @include icon('sort-alpha-desc');
+}
+
+.sorting-header__button--amount.sorting-header__button--asc {
+  @include icon('sort-amount-asc');
+}
+
+.sorting-header__button--amount.sorting-header__button--desc {
+  @include icon('sort-amount-desc');
+}

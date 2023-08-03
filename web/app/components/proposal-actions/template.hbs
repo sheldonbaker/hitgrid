@@ -1,0 +1,51 @@
+{{#if proposal.isNew}}
+  {{#promising-button action=(action attrs.create proposal)}}
+    Send
+  {{/promising-button}}
+{{else}}
+  <div>
+    {{#if proposal.countered}}
+      countered {{link-to proposal.countered.id "trade-deadline.proposals.proposal" proposal.tradeDeadline.id proposal.countered.id}} at {{format-moment proposal.createdAt}}
+    {{else}}
+      sent at {{format-moment proposal.createdAt}}
+    {{/if}}
+  </div>
+
+  {{#unless isActionable}}
+    <div>
+      {{#if (id-for-belongs-to proposal "trade")}}
+        trade official!!!
+      {{else}}
+        {{#if proposal.consented}}
+          accepted
+        {{else}}
+          {{#if proposal.counter}}
+            countered by {{link-to proposal.counter.id "trade-deadline.proposals.proposal" proposal.tradeDeadline.id proposal.counter.id}}
+          {{else}}
+            rejected
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    </div>
+  {{/unless}}
+
+  {{#if isActionable}}
+    {{#if isInitiatingTeam}}
+      {{#promising-button disabled=cancelled action=(action attrs.cancel participation)}}
+        Cancel
+      {{/promising-button}}
+    {{else}}
+      <div class="btn-group">
+        {{#promising-button action=(action attrs.accept participation)}}
+          Accept
+        {{/promising-button}}
+        {{#promising-button action=(action attrs.decline participation)}}
+          Decline
+        {{/promising-button}}
+        {{#promising-button action=(action attrs.counter proposal)}}
+          Counter
+        {{/promising-button}}
+      </div>
+    {{/if}}
+  {{/if}}
+{{/if}}

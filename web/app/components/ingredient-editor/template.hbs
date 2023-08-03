@@ -1,0 +1,5 @@
+{{#if participation.team.assets.isFulfilled}}
+  {{component componentName ingredient=ingredient participation=participation update="update" dismiss="dismiss"}}
+{{else}}
+  loading
+{{/if}}

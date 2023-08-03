@@ -1,0 +1,17 @@
+{{#if media.isMobile}}
+  {{trade-deadline-feed tradeDeadline=tradeDeadline}}
+{{else}}
+  <div class="row">
+    <div class="col-sm-4">
+      {{#negotiables-feed negotiables=tradeDeadline.trades loadMore=(route-action "goToTrades") as |trade|}}
+        {{#link-to "trade-deadline.trades.trade" trade.tradeDeadline.id trade.id}}
+          {{trade-summary trade=trade}}
+        {{/link-to}}
+      {{/negotiables-feed}}
+    </div>
+
+    <div class="col-sm-8">
+      {{teams-list calculations=tradeDeadline.calculations team=team tradeDeadline=tradeDeadline}}
+    </div>
+  </div>
+{{/if}}

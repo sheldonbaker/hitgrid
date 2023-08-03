@@ -1,0 +1,57 @@
+& {
+  @include make-row();
+
+  position: relative;
+  min-height: 100%;
+}
+
+.trade-deadline-feed__items {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 3rem;
+
+  overflow-y: auto;
+
+  @extend .list-group;
+
+  > li {
+    @extend .list-group-item;
+  }
+}
+
+.trade-deadline-feed__commenter {
+  position: absolute;
+  bottom: 0;
+
+  height: 3rem;
+  width: 100%;
+}
+
+.trade-deadline-feed__actions {
+  
+}
+
+.trade-deadline-feed__make-post {
+  @extend .btn;
+  @extend .btn-block;
+}
+
+.trade-deadline-feed__cancel-post {
+  float: left;
+
+  @extend .btn;
+  @extend .btn-link;
+
+  @include icon('remove');
+}
+
+&.trade-deadline-feed--postable {
+  .trade-deadline-feed__items {
+    bottom: 8rem;
+  }
+
+  .trade-deadline-feed__commenter {
+    height: 8rem;
+  }
+}

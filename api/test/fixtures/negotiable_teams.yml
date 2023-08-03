@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  negotiable_type: MyString
+  negotiable_id: 1
+  team_id: 1
+
+two:
+  negotiable_type: MyString
+  negotiable_id: 1
+  team_id: 1

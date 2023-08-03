@@ -1,0 +1,14 @@
+{{#unless trade.read}}
+  <span class="label--pill label--unread"></span>
+{{/unless}}
+
+<h5>
+  {{trade.participations.firstObject.team.club.abbr}}
+  <i class="fa fa-arrows-h"></i>
+  {{trade.participations.lastObject.team.club.abbr}}
+</h5>
+<p>
+  {{join-array (map-by trade.participations.firstObject.ingredients "shortDescription")}}
+  <i class="fa fa-arrows-h"></i>
+  {{join-array (map-by trade.participations.lastObject.ingredients "shortDescription")}}
+</p>

@@ -1,0 +1,7 @@
+{{#if showDialog}}
+  {{#tether-dialog hasOverlay=false target=target attachment=attachment targetAttachment=targetAttachment tetherClassPrefix="search-results-container-"}}
+    {{#click-wrapper clickedOutside="clickedOutside"}}
+      {{search-results results=results}}
+    {{/click-wrapper}}
+  {{/tether-dialog}}
+{{/if}}

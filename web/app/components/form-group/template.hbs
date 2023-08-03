@@ -1,0 +1,5 @@
+{{yield (hash
+  isInvalid=isInvalid
+  input=(component "form-group/text-field" isInvalid=isInvalid)
+  errors=(component "model-error" model=model key=key)
+)}}

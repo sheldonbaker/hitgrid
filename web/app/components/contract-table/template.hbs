@@ -1,0 +1,25 @@
+{{#data-table}}
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Avg Value</th>
+      <th>NHL Salary</th>
+      <th>Minor Salary</th>
+      <th>Signing Bonus</th>
+      <th>Max Performance Bonuses</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each contract.contractYears as |contractYear|}}
+      <tr>
+        <td>{{contractYear.leagueYear.seasonLabel}}</td>
+        <td>{{format-dollars contractYear.avgValue}}</td>
+        <td>{{format-dollars contractYear.NHLSalary}}</td>
+        <td>{{format-dollars contractYear.minorSalary}}</td>
+        <td>{{format-dollars contractYear.signingBonus}}</td>
+        <td>{{format-dollars contractYear.maxPerformanceBonuses}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+{{/data-table}}

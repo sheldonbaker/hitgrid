@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each obligatables as |settlementYear|}}
+      <tr>
+        <td>
+          {{contract-legend contract=settlementYear.settlement.contract}}
+        </td>
+        <td>{{format-dollars settlementYear.capCost}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

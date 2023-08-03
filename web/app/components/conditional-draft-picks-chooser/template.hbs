@@ -1,0 +1,10 @@
+<ul>
+  {{#selectable-items items=selectable selectedItems=draftPicks as |draftPick isSelected toggleSelected|}}
+    <li>
+      <label>
+        {{draftPick.description}}
+        {{input type="checkbox" checked=isSelected change=(action toggleSelected)}}
+      </label>
+    </li>
+  {{/selectable-items}}
+</ul>

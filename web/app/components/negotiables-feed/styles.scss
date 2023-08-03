@@ -1,0 +1,23 @@
+.negotiables-feed__items {
+  @extend .list-group;
+
+  > * {
+    @extend .list-group-item;
+
+    > .label {
+      float: right
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      @extend .list-group-item-heading;
+    
+      & + p {
+        @extend .list-group-item-text;
+      }
+    }
+  }
+
+  > button {
+    @extend .list-group-item-info;
+  }
+}

@@ -1,0 +1,24 @@
+<form class="stacked-form" {{action "submit" on="submit"}}>
+  <fieldset>
+    <fieldset class="stacked-form__title">
+      <h4>Publish Your Profile</h4>
+    </fieldset>
+
+    {{#if profile.handle}}
+      {{input type="text" class="form-control" disabled=true value=profile.handle}}
+    {{else}}
+      {{#form-group model=profile key="handle" as |fg|}}
+        <label>Handle</label>
+        {{fg.input type="text" value=handle autofocus=autofocus required=true placeholder="A unique username"}}
+        {{fg.errors}}
+      {{/form-group}}
+    {{/if}}
+
+    <fieldset class="form-group">
+      <label>Favourite Team</label>
+      {{club-selector value=favouriteClub}}
+    </fieldset>
+
+    <button type="submit" class="action-btn action-btn--full action-btn--primary">Submit</button>
+  </fieldset>
+</form>

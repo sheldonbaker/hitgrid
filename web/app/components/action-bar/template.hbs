@@ -1,0 +1,30 @@
+<h1 class="action-bar__brand">
+  {{link-to "HitGrid" "home"}}
+</h1>
+
+<ul class="nav-bar">
+  <li class="nav-bar__item nav-bar__item--fantasy">
+    {{#link-to "trade-deadlines"}}
+      <span>Trade Deadlines</span>
+    {{/link-to}}
+  </li>
+
+  <li class="nav-bar__item nav-bar__item--teams">
+    {{#link-to "teams"}}
+      <span>Teams</span>
+    {{/link-to}}
+  </li>
+
+  <li class="nav-bar__item nav-bar__item--players">
+    {{#link-to "players"}}
+      <span>Players</span>
+    {{/link-to}}
+  </li>
+</ul>
+
+<ul class="action-bar__menu">
+  <li class="action-bar__menu__search-item">
+  </li>
+</ul>
+
+{{profile-block class="action-bar__profile-block" userPromise=userPromise}}

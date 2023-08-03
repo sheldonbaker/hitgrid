@@ -1,0 +1,25 @@
+{{#data-table}}
+  <thead>
+    {{#sorting-head sort=attrs.sort sortBy=attrs.sortBy tagName="tr" as |head|}}
+      {{#head.th by="name" iconFamily="alpha"}}Player{{/head.th}}
+      {{#head.th by="position"}}Position{{/head.th}}
+      {{#head.th by="age"}}Age{{/head.th}}
+      {{#head.th by="club" iconFamily="alpha"}}Team{{/head.th}}
+      {{#head.th by="cap_hit" iconFamily="alpha"}}Cap Hit{{/head.th}}
+    {{/sorting-head}}
+  </thead>
+
+  <tbody>
+    {{#contract-assets-in-league-year assets=assets leagueYear=leagueYear as |asset contract contractYear|}}
+      <tr>
+        <td>{{link-to contract.player.fullName "players.player" contract.player.id}}</td>
+        <td>{{contract.player.position}}</td>
+        <td>{{age-at contract.player.birthdate universe.date}}</td>
+        <td>{{link-to asset.club.abbr "teams.team" asset.club.abbr}}</td>
+        <td>{{format-dollars contractYear.avgValue}}</td>
+      </tr>
+    {{/contract-assets-in-league-year}}
+  </tbody>
+{{/data-table}}
+
+{{pager-links collection=assets links=assets.meta.links prevPage=attrs.prevPage nextPage=attrs.nextPage}}

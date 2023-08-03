@@ -1,0 +1,7 @@
+{{#if yieldEach}}
+  {{#each groups as |group|}}
+    {{yield group.group group.content}}
+  {{/each}}
+{{else}}
+  {{yield groups}}
+{{/if}}

@@ -1,0 +1,32 @@
+&.search-form {
+  position: relative;
+
+  @include media-breakpoint-down(sm) {
+    .search-form__input-wrapper, .search-form__close {
+      position: absolute;
+    }
+  
+    .search-form__input-wrapper {
+      left: 0;
+      right: 3em;
+    }
+  }
+  
+  input {
+    width: 100%;
+  }
+
+  .search-form__close {
+    right: 0;
+    @extend .btn;
+    @extend .btn-link;
+
+    @include icon('remove');
+  }
+
+  @include media-breakpoint-up(md) {
+    .search-form__close {
+      display: none;
+    }
+  }
+}

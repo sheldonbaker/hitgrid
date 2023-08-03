@@ -1,0 +1,7 @@
+{{#if willStart}}
+  <span>{{format-moment time "HH:mm:ss"}}</span> starts in
+{{else if isOngoing}}
+  <span>{{format-moment time "HH:mm:ss"}}</span> remaining
+{{else}}
+  <span>00:00:00</span> remaining
+{{/if}}

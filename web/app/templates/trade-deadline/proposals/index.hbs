@@ -1,0 +1,20 @@
+{{#negotiables-feed negotiables=proposals team=team loadMore=(route-action "fetchMore") as |proposal participation|}}
+  {{#link-to "trade-deadline.proposals.proposal" proposal.tradeDeadline.id proposal.id}}
+    {{#unless proposal.read}}
+      <span class="label--pill label--unread"></span>
+    {{/unless}}
+
+    <h5>
+      {{proposal.participations.firstObject.team.club.abbr}}
+      <i class="fa fa-arrows-h"></i>
+      {{proposal.participations.lastObject.team.club.abbr}}
+
+      {{proposal-status-label proposal=proposal participation=participation}}
+    </h5>
+    <p>
+      {{join-array (map-by proposal.participations.firstObject.ingredients "shortDescription")}}
+      <i class="fa fa-arrows-h"></i>
+      {{join-array (map-by proposal.participations.lastObject.ingredients "shortDescription")}}
+    </p>
+  {{/link-to}}
+{{/negotiables-feed}}

@@ -1,0 +1,7 @@
+{{#if profile.rawPicture}}
+  {{blob-thumbnail blob=profile.rawPicture.blob width=width height=height}}
+{{else if profile.tempPictureUrl}}
+  <img src={{profile.pictureUrl}} width="{{unbound width}}" height="{{unbound height}}">
+{{else if profile.pictureUrl}}
+  <img src={{profile.pictureUrl}}>
+{{/if}}

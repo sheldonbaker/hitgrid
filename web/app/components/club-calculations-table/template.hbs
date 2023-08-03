@@ -1,0 +1,52 @@
+{{#data-table}}
+  <colgroup span="1"></colgroup>
+  <colgroup span="3" class="club-calculations-table__today-column"></colgroup>
+  <colgroup span="3" class="club-calculations-table__trade-deadline-column"></colgroup>
+  <colgroup span="4" class="club-calculations-table__season-end-column"></colgroup>
+
+  <thead>
+    {{#sorting-head sort=attrs.sort sortBy=attrs.sortBy tagName="tr" as |head|}}
+      {{#head.th by="club.id" iconFamily="alpha"}}Team{{/head.th}}
+      {{#head.th by="contracts"}}Contracts{{/head.th}}
+    
+      {{#head.th by="cap_usage"}}Cap Usage{{/head.th}}
+      {{#head.th by="cap_space"}}Cap Space{{/head.th}}
+      {{#head.th by="absorbable_cap_hit"}}Absorbable Cap Hit{{/head.th}}
+
+      {{#head.th by="trade_deadline_cap_usage"}}Cap Usage{{/head.th}}
+      {{#head.th by="trade_deadline_cap_space"}}Cap Space{{/head.th}}
+      {{#head.th by="trade_deadline_absorbable_cap_hit"}}Absorbable Cap Hit{{/head.th}}
+
+      {{#head.th by="season_end_cap_usage"}}Cap Usage{{/head.th}}
+      {{#head.th by="season_end_cap_space"}}Cap Space{{/head.th}}
+      {{#head.th by="season_end_ltir_relief"}}LTIR Relief{{/head.th}}
+      {{#head.th by="season_end_bonus_cushion_usage"}}Bonus Cushion Usage{{/head.th}}
+    {{/sorting-head}}
+  </thead>
+
+  <tbody>
+    {{#each calculations as |calc|}}
+      <tr>
+        <td>
+          {{#link-to "teams.team" calc.club.abbr}}
+            {{club-logo club=calc.club}}
+            {{club.distinctiveName}}
+          {{/link-to}}
+        </td>
+        <td>{{calc.contractsCount}}</td>
+        <td>{{format-dollars calc.capUsage}}</td>
+        <td>{{format-dollars calc.capSpace}}</td>
+        <td>{{format-dollars calc.absorbableCapHit}}</td>
+
+        <td>{{format-dollars calc.tradeDeadlineCapUsage}}</td>
+        <td>{{format-dollars calc.tradeDeadlineCapSpace}}</td>
+        <td>{{format-dollars calc.tradeDeadlineAbsorbableCapHit}}</td>
+
+        <td>{{format-dollars calc.seasonEndCapUsage}}</td>
+        <td>{{format-dollars calc.seasonEndCapSpace}}</td>
+        <td>{{format-dollars calc.seasonEndLTIRRelief}}</td>
+        <td>{{format-dollars calc.seasonEndBonusCushionUsage}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+{{/data-table}}

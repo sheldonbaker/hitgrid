@@ -1,0 +1,40 @@
+{{#if userPromise.isSettled}}
+
+    {{#if userPromise}}
+      {{#if userPromise.claimed}}
+        {{#if userPromise.profile.published}}
+          {{link-to userPromise.profile.handle "profile" userPromise.profile}}
+        {{else}}
+          <a class="action" {{action (route-action "havePublishedProfile")}}>My Profile</a>
+        {{/if}}
+
+        <div class="dropdown profile-block--account-dropdown">
+          <a class="profile-block--menu-icon" data-target="#" data-toggle="dropdown">
+            {{fa-icon 'bars'}}
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right">
+            {{link-to "Log out" "logout" class="dropdown-item"}}
+          </div>
+        </div>
+      {{else}}
+        {{#link-to "signup"}}Save account{{/link-to}}
+
+        <div class="dropdown profile-block--account-dropdown">
+          <a class="profile-block--menu-icon" data-target="#" data-toggle="dropdown">
+            {{fa-icon 'bars'}}
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right">
+            {{link-to "Destroy account" "logout" class="dropdown-item"}}
+          </div>
+        </div>
+      {{/if}}
+    {{else}}
+      {{link-to "Sign in" "login"}}
+      {{link-to "Register" "signup"}}
+    {{/if}}
+
+{{else}}
+  loading
+{{/if}}

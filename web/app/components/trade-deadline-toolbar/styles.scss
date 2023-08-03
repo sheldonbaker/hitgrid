@@ -1,0 +1,32 @@
+& {
+  @extend .navbar;
+  @extend .navbar-fixed-bottom;
+
+  @extend .nav;
+  @extend .nav-tabs;
+
+  @extend .bg-faded;
+
+  ul {
+    @extend .nav;
+    @extend .navbar-nav;
+  }
+
+  li {
+    @extend .nav-item;
+
+    a {
+      @extend .nav-link;
+
+      span {
+        @extend .label;
+        @extend .label-pill;
+        @extend .label-danger;
+      }
+    }
+  }
+}
+
+.trade-deadline-toolbar__new-proposal a {
+  @include icon('shopping-basket');
+}

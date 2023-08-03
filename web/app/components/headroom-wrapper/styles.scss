@@ -1,0 +1,11 @@
+&.headroom-wrapper {
+  transition: transform 200ms linear;
+}
+
+&.headroom-wrapper--pinned {
+  transform: translateY(0%);
+}
+
+&.headroom-wrapper--unpinned {
+  transform: translateY(-100%);
+}

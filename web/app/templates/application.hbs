@@ -1,0 +1,18 @@
+<div id="application" class="{{currentRoutes}}">
+  {{action-bar
+    tagName="header"
+    userPromise=userPromise
+    goBack="goBack"
+    searchQuery=searchQuery
+    searchResults=searchResults
+    id="action-bar"
+  }} 
+  
+  <div id="content-wrapper">
+    <div id="content">
+      {{outlet}}
+    </div>
+  </div>
+</div>
+
+{{liquid-modal}}

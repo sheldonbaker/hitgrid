@@ -1,0 +1,13 @@
+.profile-block--account-dropdown {
+  display: inline-block;
+  z-index: index($z-layers, dropdowns);
+}
+
+.profile-block--menu-icon {
+  color: white;
+}
+
+// a {
+//   color: white;
+//   display: inline-block;
+// }

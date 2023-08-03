@@ -1,0 +1,2 @@
+rails: rails s
+delayed_job: bundle exec rake jobs:work

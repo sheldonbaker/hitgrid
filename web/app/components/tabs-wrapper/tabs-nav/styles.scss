@@ -1,0 +1,13 @@
+& {
+  @extend .nav;
+  @extend .nav-tabs;
+
+  > li {
+    @extend .nav-item;
+  
+    > a {
+      @extend .nav-link;
+      cursor: pointer;
+    }
+  }
+}

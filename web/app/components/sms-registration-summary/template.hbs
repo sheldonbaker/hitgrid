@@ -1,0 +1,9 @@
+{{#if registration.enabled}}
+  {{registration.phoneNumber}} - enabled
+{{else}}
+  {{#if registration.verifiableAt}}
+    {{registration.phoneNumber}} - <button {{action "registerSms"}}>verify</button>
+  {{else}}
+    no phone number - <button {{action "registerSms"}}>add now</button>
+  {{/if}}
+{{/if}}

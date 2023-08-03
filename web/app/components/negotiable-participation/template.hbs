@@ -1,0 +1,52 @@
+{{#if (and editable selectableTeams)}}
+  {{team-selector team=participation.team teams=selectableTeams on-select="updateTeam"}}
+{{/if}}
+
+{{participation.team.club.abbr}}
+
+{{#if (and participation.team.assets.isFulfilled participation.team.allocations.isFulfilled)}}
+  <div class="negotiable-participation__ingredients">
+    {{#allocated-ingredients ingredients=participation.ingredients allocations=participation.team.allocations date=participation.negotiable.date as |ingredient allocation|}}
+      {{#if editable}}
+        {{ingredient-summary ingredient=ingredient allocation=allocation edit=(action "editIngredient") remove=(action "removeIngredient")}}
+      {{else}}
+        {{ingredient-summary ingredient=ingredient allocation=allocation}}
+      {{/if}}
+    {{/allocated-ingredients}}
+  </div>
+
+  ---
+
+  {{#if editable}}
+    {{#tabs-wrapper selectedTab="contracts" as |tabs|}}
+      {{#tabs.nav as |selectTab|}}
+        <li><a {{action selectTab "contracts"}}>contracts</a></li>
+        <li><a {{action selectTab "draftPicks"}}>draft picks</a></li>
+        <li><a {{action selectTab "conditionals"}}>conditional draft picks</a></li>
+      {{/tabs.nav}}
+
+      <div class="negotiable-participation__assets">
+        {{#tabs.pane name="contracts"}}
+          {{#allocated-contracts date=participation.negotiable.date contracts=participation.team.contractAssetables allocations=participation.team.allocations as |contract allocation|}}
+            {{ingredient-adders/x-contract assetable=contract allocation=allocation engagedAssetables=participation.engagedAssetables add="createIngredient" addAndEdit="createAndEditIngredient"}}
+          {{/allocated-contracts}}
+        {{/tabs.pane}}
+
+        {{#tabs.pane name="draftPicks"}}
+          {{#each participation.team.draftPickAssetables as |draftPick|}}
+            {{ingredient-adders/x-draft-pick assetable=draftPick engagedAssetables=participation.engagedAssetables add="createIngredient" addAndEdit="createAndEditIngredient"}}
+          {{/each}}
+        {{/tabs.pane}}
+
+        {{#tabs.pane name="conditionals"}}
+          {{#each participation.team.conditionalAssetables as |conditional|}}
+            {{ingredient-adders/x-conditional assetable=conditional engagedAssetables=participation.engagedAssetables add="createIngredient"}}
+          {{/each}}
+        {{/tabs.pane}}
+      </div>
+    {{/tabs-wrapper}}
+  {{/if}}
+
+{{else}}
+  loading
+{{/if}}

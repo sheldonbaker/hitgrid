@@ -1,0 +1,23 @@
+<ul class="trade-deadline-feed__items">
+  {{#each feedables as |feedable|}}
+    {{#if (eq feedable.constructor.modelName "news-item")}}
+      {{news-item newsItem=feedable tagName="li"}}
+    {{else if (eq feedable.constructor.modelName "comment")}}
+      {{comment-item comment=feedable tagName="li"}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<div class="trade-deadline-feed__commenter">
+  {{#if commentPostable}}
+    {{post-adder class="trade-deadline-feed__comment-creator" autofocus=true addPost=(action "createComment")}}
+    
+    <div class="trade-deadline-feed__actions">
+      <button {{action "toggleCommentPrep"}} class="trade-deadline-feed__cancel-post"></button>
+    </div>
+  {{else}}
+    <div class="trade-deadline-feed__actions">
+      <button {{action "toggleCommentPrep"}} class="trade-deadline-feed__make-post">comment</button>
+    </div>
+  {{/if}}
+</div>

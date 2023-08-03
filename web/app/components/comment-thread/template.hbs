@@ -1,0 +1,7 @@
+{{#if comments.isFulfilled}}
+  {{#each comments as |comment|}}
+    {{comment.body}}
+  {{/each}}
+{{else}}
+  loading comments
+{{/if}}

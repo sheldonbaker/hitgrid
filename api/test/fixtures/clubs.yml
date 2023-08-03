@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slug: MyString
+  abbr: MyString
+  division: MyString
+  conference: MyString
+  geographic_name: MyString
+  distinctive_name: MyString
+  full_name: MyString
+
+two:
+  slug: MyString
+  abbr: MyString
+  division: MyString
+  conference: MyString
+  geographic_name: MyString
+  distinctive_name: MyString
+  full_name: MyString

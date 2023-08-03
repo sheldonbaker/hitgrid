@@ -1,0 +1,12 @@
+{{messages-thread team=team otherTeam=otherTeam allMessages=messages}}
+
+<div class="messages-with-team__new-message-container">
+  <div class="messages-with-team__new-message-fields">
+    {{textarea value=newMessageBody enter=(action "createMessage" newMessageBody)}}
+  </div>
+  <div class="messages-with-team__new-message-send">
+    {{#promising-button disabled=(not newMessageBody.length) action=(action "createMessage" newMessageBody)}}
+      send
+    {{/promising-button}}
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each obligatables as |penaltyYear|}}
+      <tr>
+        <td>
+          {{contract-legend contract=penaltyYear.recapturePenalty.contract}}
+        </td>
+        <td>{{format-dollars penaltyYear.capCost}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
